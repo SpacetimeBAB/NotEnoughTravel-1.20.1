@@ -1,0 +1,39 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.bike": {
+			"loop": true,
+			"animation_length": 6.5,
+			"bones": {
+				"wheels": {
+					"relative_to": {
+						"rotation": "entity"
+					},
+					"rotation": {
+						"0.0": {
+							"vector": [-5, 0, 0]
+						},
+						"0.75": {
+							"vector": [-25, 0, 0]
+						},
+						"1.7083": {
+							"vector": [-66.1905, 0, 0]
+						},
+						"2.5417": {
+							"vector": [-118.6905, 0, 0]
+						},
+						"3.625": {
+							"vector": [-168.6905, 0, 0]
+						},
+						"4.7083": {
+							"vector": [-231.1905, 0, 0]
+						},
+						"5.6667": {
+							"vector": [-281.59188, 0, 0]
+						}
+					}
+				}
+			}
+		}
+	}
+}

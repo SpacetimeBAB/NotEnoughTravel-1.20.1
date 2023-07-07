@@ -17,6 +17,8 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
 
+import static com.flowingss.notenoughtravel.Inits.EntityInit.ENTITY_TYPES;
+
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(NotEnoughTravel.MOD_ID)
 public class NotEnoughTravel
@@ -43,6 +45,8 @@ public class NotEnoughTravel
         BLOCKS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so items get registered
         ITEMS.register(modEventBus);
+
+        ENTITY_TYPES.register(modEventBus);
         // Register the Deferred Register to the mod event bus so tabs get registered
 
 
