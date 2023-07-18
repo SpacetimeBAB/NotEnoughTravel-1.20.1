@@ -24,9 +24,9 @@ import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
-public class BikeEntity extends Animal implements GeoEntity {
+public class BikeEntity extends RideableEntity implements GeoEntity {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
-    public BikeEntity(EntityType<? extends Animal> p_38290_, Level p_38291_) {
+    public BikeEntity(EntityType<? extends RideableEntity> p_38290_, Level p_38291_) {
         super(p_38290_, p_38291_);
     }
 
@@ -52,7 +52,7 @@ public class BikeEntity extends Animal implements GeoEntity {
                 this.yRotO = getYRot();
                 this.xRotO = getXRot();
 
-                setYRot(passenger.getYRot()*0.5f);
+                setYRot(passenger.getYRot());
                 setXRot(passenger.getXRot() * 0.5f);
                 setRot(getYRot(), getXRot());
 
@@ -107,6 +107,9 @@ public class BikeEntity extends Animal implements GeoEntity {
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return cache;
     }
+
+
+
 
 
 

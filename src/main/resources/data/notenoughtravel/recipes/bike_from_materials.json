@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "#  ",
+    "@@@",
+    "% %"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:iron_ingot"
+},
+    "@": {
+      "item": "minecraft:redstone"
+    },
+    "%": {
+      "item": "notenoughtravel:wheels"
+    }
+  },
+  "result": {
+    "item": "notenoughtravel:bike_spawn_egg"
+  }
+}

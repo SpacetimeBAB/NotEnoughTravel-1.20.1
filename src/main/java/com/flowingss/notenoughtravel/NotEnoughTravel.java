@@ -1,11 +1,15 @@
 package com.flowingss.notenoughtravel;
 
 import com.flowingss.notenoughtravel.Inits.EntityInit;
+import com.flowingss.notenoughtravel.Inits.ItemInit;
 import com.mojang.logging.LogUtils;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -29,9 +33,6 @@ public class NotEnoughTravel
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
     // Create a Deferred Register to hold Blocks which will all be registered under the "examplemod" namespace
-    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MOD_ID);
-    // Create a Deferred Register to hold Items which will all be registered under the "examplemod" namespace
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MOD_ID);
 
 
 
@@ -43,17 +44,16 @@ public class NotEnoughTravel
         modEventBus.addListener(this::commonSetup);
 
         // Register the Deferred Register to the mod event bus so blocks get registered
-        BLOCKS.register(modEventBus);
-        // Register the Deferred Register to the mod event bus so items get registered
-        ITEMS.register(modEventBus);
 
+        // Register the Deferred Register to the mod event bus so items get registered
+        ItemInit.ITEMS.register(modEventBus);
         ENTITY_TYPES.register(modEventBus);
         // Register the Deferred Register to the mod event bus so tabs get registered
 
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
-
+        modEventBus.addListener(this::addCreative);
         // Register the item to a creative tab
 
 
@@ -65,6 +65,15 @@ public class NotEnoughTravel
     {
 
 
+    }
+
+    private void addCreative(BuildCreativeModeTabContentsEvent event){
+        if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS){
+            event.accept(ItemInit.BIKE_SPAWN_EGG);
+        }
+        if (event.getTabKey()== CreativeModeTabs.INGREDIENTS){
+            event.accept(ItemInit.WHEELS);
+        }
     }
 
     // Add the example block item to the building blocks tab
