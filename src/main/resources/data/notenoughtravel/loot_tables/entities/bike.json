@@ -1,4 +1,14 @@
 {
   "type": "minecraft:entity",
-  "random_sequence": "notenoughtravel:entities/bike"
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "notenoughtravel:bike_spawn_egg"
+        }
+      ]
+    }
+  ]
 }
