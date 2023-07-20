@@ -65,6 +65,11 @@ public class BikeEntity extends RideableEntity implements GeoEntity {
                     z *= 0.25f;
 
                 this.setSpeed(0.3f);
+                this.dismountsUnderwater();
+
+                if(this.fallDistance > 0.0F){
+                    this.fallDistance = 0.0f;
+                }
                 super.travel(new Vec3(x, pos.y, z));
             }
         }
