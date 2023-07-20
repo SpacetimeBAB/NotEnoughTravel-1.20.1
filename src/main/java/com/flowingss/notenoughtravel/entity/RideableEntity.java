@@ -18,7 +18,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
-public class RideableEntity extends Animal{
+public abstract class RideableEntity extends Animal{
 
 
     protected RideableEntity(EntityType<? extends Animal> p_27557_, Level p_27558_) {
